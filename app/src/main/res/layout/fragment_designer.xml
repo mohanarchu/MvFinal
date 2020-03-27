@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Shop.fragments.Designer">
+
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp">
+
+        <LinearLayout
+            android:alpha="0.1"
+            android:background="@color/backColor"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.codesgood.views.JustifiedTextView
+            android:gravity="center|start"
+            android:id="@+id/tv_justified_paragraph"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="6dp"
+            android:textStyle="bold"
+            android:textFontWeight="500"
+            android:text="This range includes fashionable pairs of designer footwear that are extremely comfortable and created particularly for people who have Neuropathy."
+            android:textColor="@color/colorAccent1"
+            android:textSize="18sp" />
+
+    </FrameLayout>
+
+
+    <LinearLayout
+
+        android:background="@color/backColor"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <RadioGroup
+
+            android:padding="7sp"
+            android:id="@+id/dradioGroup"
+            android:gravity="center"
+            android:weightSum="3"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RadioButton
+
+                android:drawableTint="@color/colorPrimaryDark"
+                android:id="@+id/dAll"
+                android:text="All"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+
+            <RadioButton
+                android:drawableTint="@color/colorPrimaryDark"
+                android:id="@+id/dGents"
+                android:text="Gents"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+            <RadioButton
+                android:drawableTint="@color/colorPrimaryDark"
+                android:id="@+id/dLadies"
+                android:text="Ladies"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"/>
+        </RadioGroup>
+
+
+
+    </LinearLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/designerRecycler"
+        android:layout_height="match_parent"/>
+
+
+</LinearLayout>

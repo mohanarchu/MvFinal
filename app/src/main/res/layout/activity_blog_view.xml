@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorAccent"
+    android:weightSum="2"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".aboutUs.BlogView">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:background="@color/white"
+        app:title="Blogs"
+        app:titleTextColor="@color/colorAccent1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+   android:visibility="gone"
+            android:id="@+id/factVisible"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:scaleType="fitXY"
+                android:src="@drawable/img_03"
+
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/white"
+
+                android:textSize="17dp"
+                android:text="Do you know why you should have your breakfast regularly and on time?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:textSize="15dp"
+                android:layout_marginTop="10dp"
+                android:padding="3dp"
+                android:textColor="@color/white"
+                android:text="1. About a third of all people with diabetes do not know they have the disease.
+
+Attitude Matters
+2. Type 2 diabetes often does not have any symptoms.
+
+Attitude Matters
+3. Type 2 diabetes is the more common form. Only about five percent of all people with diabetes have type 1 diabetes.
+
+Attitude Matters
+4. If you are at risk, type 2 diabetes can be prevented with moderate weight loss and 30 minutes of physical activity (such as brisk walking) each day.
+
+Attitude Matters
+5. A person with diabetes can have the same food as that which is recommended for people without diabetes but with a few changes in portion size and carb content.
+
+Attitude Matters
+6. Diabetes is the leading cause of blindness in adults.
+
+Attitude Matters
+7. People with diabetes are at greater risk for heart disease than those without diabetes.
+
+Attitude Matters
+8. Good control of diabetes reduces the risk of developing complications and if complications have set in, it also prevents them from getting worse.
+
+Attitude Matters
+9. Bariatric surgery can reduce the symptoms of diabetes in obese people.
+
+Attitude Matters
+10. Diabetes is expensive to treat. So prevent it. Change your life style."
+
+                android:layout_height="wrap_content"
+                android:layout_width="match_parent" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <androidx.core.widget.NestedScrollView
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:visibility="gone"
+            android:id="@+id/breakVisibble"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:scaleType="fitXY"
+                android:src="@drawable/img_02"
+
+                android:layout_width="match_parent"
+                android:layout_height="200dp"/>
+
+            <TextView
+                android:textStyle="bold"
+                android:textColor="@color/white"
+
+                android:textSize="17dp"
+                android:text="Do you know why you should have your breakfast regularly and on time?"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+
+            <TextView
+                android:textSize="15dp"
+                android:layout_marginTop="10dp"
+                android:padding="3dp"
+                android:textColor="@color/white"
+                android:text="Breakfast triggers our morning hormonal activities (metabolism). The body has two biological clocks that maintain the Circadian rhythms ( the physical, mental and behavioural changes that follow a daily cycle) .The central clock, which is in a tiny region of the brain (hypothalamus), responds to light and dark in the environment . The ‘master’ clock in the brain receives light input from the retina and conveys timing information to ‘slave’ clocks in the peripheral tissues related to sleeping and eating patterns and various organ functions.
+
+Thus, the biological clock controls the activities of most enzymes, hormones, and the transport systems involved in glucose metabolism.
+
+The peripheral clock in the liver, beta cells, muscles, adipose tissues responds to what was eaten and when it was eaten. It regulates digestive function, absorption function, and hormone secretion and also influences the process of formation of glucose in the liver and the secretion of insulin from pancreatic β-cells which are responsible for diabetes.
+
+How would this finely tuned body process impact those whose timings are different either voluntarily as in poor daily routines, or involuntarily as in shift workers and people who travel through different time zones?
+
+In a comparative study of people with type 2 adult diabetes and healthy individuals, it was found that not eating breakfast altered the clock and metabolic gene expression after lunch in both the groups and showed greater disturbance of their biological clock.
+
+Glucose level was 15-18% higher and GLP-1 (intestinal gut hormone regulator)after lunch was lower by 35% In both groups ,and Insulin was 25% lower after lunch when compared to a day with breakfast.
+
+Missing out on breakfast led to an increase in postprandial hyperglycaemia and weak insulin responses after lunch and dinner in people with diabetes.
+
+We can conclude that breakfast consumption triggers proper cyclic clock gene expression in both groups leading to improved post lunch and post dinner blood glucose levels and insulin.
+
+It was also found that the rhythmic pattern was altered due to constant light exposure, consumption of western diet, and eating during the inactivity hours .There was a higher risk of obesity, metabolic changes and type 2 adult diabetes among shift workers and frequent overseas travellers.
+
+As the circadian clock also regulates blood pressure, heart rate and cardiovascular activity as well as adipose (fat) tissue and other metabolic organs, meal timing may have an effect on the overall metabolism and influence the chronic complications of obesity and type 2 adult diabetes.
+
+Nowadays many people opt for ‘brunch’ - a combination of breakfast and lunch- especially on holidays. However,it is good to keep inmind that our body processes are finely tuned. Following a daily routine of meal time, activity time and sleep time will keep us healthy and reduce the risk of lifestyle ailments."
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</LinearLayout>

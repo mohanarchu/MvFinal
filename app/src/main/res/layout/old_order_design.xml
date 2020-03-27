@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_margin="1dp"
+    app:cardCornerRadius="4dp"
+    app:cardBackgroundColor="@color/colorAccent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:weightSum="1"
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+        <LinearLayout
+            android:background="@color/white"
+            android:layout_weight="0.25"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+
+                android:id="@+id/old_image"
+                android:scaleType="fitXY"
+                android:src="@drawable/error"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+            </ImageView>
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:padding="3dp"
+            android:layout_weight="0.75"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+
+            <RelativeLayout
+                android:padding="4dp"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:layout_marginRight="30dp"
+                    android:id="@+id/oldProductName"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:text="ProductName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+                <ImageView
+
+                    android:visibility="gone"
+                    android:layout_alignParentRight="true"
+                    android:tint="@color/red"
+                    android:src="@drawable/ic_delete_black_24dp"
+                    android:id="@+id/deleteProduct"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+            </RelativeLayout>
+
+
+            <TextView
+                android:padding="4dp"
+                android:id="@+id/oldProductCode"
+                android:textSize="14dp"
+                android:textColor="@color/white"
+                android:text="Code"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+            <LinearLayout
+                android:padding="4dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+
+                    android:background="@drawable/line"
+
+                    android:layout_gravity="center"
+                    android:drawableTint="@color/white"
+
+                    android:id="@+id/oldsizeSpinner"
+                    android:textStyle="bold"
+
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:layout_width="100dp"
+                    android:layout_height="28dp"/>
+
+                <TextView
+                    android:layout_gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+
+                    android:gravity="center"
+                    android:background="@drawable/line"
+                    android:layout_marginLeft="5dp"
+                    android:drawableTint="@color/white"
+
+                    android:id="@+id/oldcolorSpinner"
+                    android:layout_width="100dp"
+                    android:layout_height="28dp"/>
+            </LinearLayout>
+
+            <RelativeLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+
+                    android:layout_marginLeft="4dp"
+                    android:layout_width="wrap_content"
+                    android:gravity="center"
+                    android:weightSum="3"
+                    android:layout_height="match_parent">
+
+
+
+
+                    <TextView
+
+                        android:layout_marginRight="5dp"
+                        android:layout_marginLeft="3dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:text="1 "
+                        android:id="@+id/oldtotalCount"
+                        android:layout_width="wrap_content"
+                        android:textSize="18dp"
+                        android:layout_height="wrap_content" />
+
+
+
+
+
+                </LinearLayout>
+
+
+
+                <TextView
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/white"
+                    android:id="@+id/oldtotalAmount"
+                    android:drawableLeft="@drawable/ic_rupee_indian"
+                    android:paddingRight="6dp"
+                    android:textStyle="bold"
+                    android:textSize="16dp"
+                    android:text="600 "
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent" />
+
+            </RelativeLayout>
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+
+
+    </LinearLayout>
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.2dp"
+        android:background="@color/colorAccent"
+        />
+
+</androidx.cardview.widget.CardView>

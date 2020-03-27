@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+
+
+    android:orientation="vertical"
+    tools:context=".Splash"
+    tools:ignore="NamespaceTypo">
+
+    <LinearLayout
+        android:visibility="gone"
+        android:weightSum="1"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+        <TextView
+
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:text="The Earliest Diabetes Hospital for Diabetes since 1954."
+        android:layout_weight="0.05"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        </TextView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:weightSum="1"
+        android:background="@color/black"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_weight="0.2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"/>
+
+        <RelativeLayout
+            android:layout_weight="0.6"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+
+
+            <pl.droidsonroids.gif.GifImageView
+                android:id="@+id/gifRepeatImage"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_weight="0.2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp">
+            <ImageView
+                android:id="@+id/imageToVisioble"
+                android:padding="35dp"
+                android:visibility="gone"
+                android:src="@drawable/download"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+            <com.hanks.htextview.typer.TyperTextView
+                android:visibility="gone"
+                android:id="@+id/textview2"
+                android:textSize="40dp"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                app:charIncrease="1"
+                app:typerSpeed="150"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

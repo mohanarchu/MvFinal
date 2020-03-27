@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#032A29</color>
+    <color name="colorAccent1" tools:ignore="MissingDefaultResource">#963A94</color>
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="flutter_blue">#20A4E8</color>
+    <color name="flutter_blue1" >#5A96B6</color>
+    <color name="white1">#C1C7C9</color>
+    <color name="black1"> #FF606568</color>
+    <color name="black2">#a0a4a6</color>
+    <color name="red">#ea383c</color>
+    <color name="transparentRed">#10ea383c</color>
+    <color name="navy"> #FF4CD7C9</color>
+    <color name="yelow">#FFD2B139 </color>
+    <color name="grey">#e9e8e1</color>
+    <color name="grey1">#ecece9</color>
+    <color name="grey2">#A4F1F1F1</color>
+    <color name="greeen">#018786</color>
+    <color name="green">#FF508F45</color>
+    <color name="shape">#234f69</color>
+    <color name="backColor">#CFDBE2</color>
+</resources>

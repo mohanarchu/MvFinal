@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="5dp"
+
+    android:background="@color/white"
+    tools:context=".aboutUs.Testimonials">
+
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+            <ImageView
+                android:alpha="0.5"
+                android:scaleType="fitXY"
+                android:src="@drawable/inner_banner_news"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+            <View
+                android:alpha="0.4"
+                android:background="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_centerInParent="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <TextView
+                        android:gravity="center"
+                        android:textSize="30dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:text="TESTIMONIALS"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                    <TextView
+                        android:gravity="center"
+                        android:textSize="17dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/white"
+                        android:text="60 years of Diabetes care, Research , \n Education &amp; Training center "
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                </LinearLayout>
+
+
+
+
+            </RelativeLayout>
+
+
+
+        </FrameLayout>
+
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black1"
+            android:textStyle="bold"
+            android:textSize="18dp"
+            android:gravity="center"
+            android:text="M.V.Hospital for Diabetes , Royapural , \n Chennai Testimonials"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <ImageView
+            android:layout_marginTop="15dp"
+            android:src="@drawable/image_1"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+        <ImageView
+           android:layout_marginTop="10sp"
+            android:src="@drawable/image_2"
+            android:layout_width="match_parent"
+            android:layout_height="400dp"/>
+
+        <ImageView
+            android:layout_marginTop="10sp"
+            android:scaleType="fitXY"
+            android:src="@drawable/image_3"
+            android:layout_width="200dp"
+            android:layout_height="200dp"/>
+
+        <ImageView
+            android:layout_marginTop="10sp"
+            android:src="@drawable/image_4"
+            android:layout_width="match_parent"
+            android:layout_height="350dp"/>
+
+        <ImageView
+            android:layout_marginTop="10sp"
+            android:src="@drawable/image_5"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+
+        <ImageView
+            android:src="@drawable/image_6"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+        <ImageView
+            android:layout_marginTop="10sp"
+            android:src="@drawable/image_7"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"/>
+        <ImageView
+            android:src="@drawable/image_8"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+        <ImageView
+            android:src="@drawable/image_9"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+        <ImageView
+            android:src="@drawable/image_10"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+        <ImageView
+            android:src="@drawable/image_11"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+        <ImageView
+            android:src="@drawable/image_12"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+        <ImageView
+            android:src="@drawable/image_13"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+        <ImageView
+            android:src="@drawable/image_15"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+
+        <ImageView
+            android:src="@drawable/image_16"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+        <ImageView
+            android:src="@drawable/image_17"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"/>
+
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/webvideo_layout2"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            >
+
+
+            <ImageView
+                android:id="@+id/img_thumnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/iv_play_pause"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_play_circle_filled_black_24dp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/webvideo_layout22"
+            android:layout_width="match_parent"
+            android:layout_height="240dp"
+            android:layout_gravity="center"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            >
+
+
+            <ImageView
+                android:id="@+id/img_thumnails"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:scaleType="fitXY" />
+
+            <ImageView
+                android:id="@+id/iv_play_pauses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:src="@drawable/ic_play_circle_filled_black_24dp" />
+        </RelativeLayout>
+
+
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>

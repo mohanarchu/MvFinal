@@ -1,0 +1,481 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    tools:context=".Appointment.BookApponement">
+    <LinearLayout
+        android:layout_marginBottom="40dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:layout_width="match_parent"
+            android:id="@+id/appoinmentTool"
+            app:title="E-APPOINTMENT"
+            app:titleTextColor="@color/white"
+            android:background="@color/colorAccent1"
+            android:layout_height="wrap_content">
+        </androidx.appcompat.widget.Toolbar>
+
+        <androidx.core.widget.NestedScrollView
+            android:background="@color/white"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:theme="@style/Theme.App.Base"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:paddingLeft="5dp"
+                            android:text="Doctor Name"
+                            android:textSize="16dp"
+                            android:textColor="@color/colorAccent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <EditText
+                                android:id="@+id/doctorName"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center|start"
+
+                                android:paddingLeft="5dp"
+                                android:singleLine="true"
+                                android:textColor="@color/black1"
+
+                                android:textSize="18dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <TextView
+                    android:padding="2dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/details"
+                    android:textAlignment="textStart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:paddingLeft="5dp"
+                            android:text="Appointment  Date 1"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="16dp"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+
+                            android:padding="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/appointmentDate1"
+                                android:background="@drawable/line"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:gravity="center|start"
+
+                                android:paddingLeft="5dp"
+                                android:singleLine="true"
+                                android:textColor="@color/black1"
+
+                                android:textSize="18dp" />
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:paddingLeft="5dp"
+                            android:text="Appointment Date 2"
+                            android:textSize="16dp"
+                            android:textColor="@color/colorAccent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:padding="5dp"
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                android:id="@+id/apoointmentDate2"
+                                android:background="@drawable/line"
+                                android:layout_width="match_parent"
+                                android:layout_height="40dp"
+                                android:gravity="center|start"
+
+                                android:paddingLeft="5dp"
+                                android:singleLine="true"
+                                android:textColor="@color/black1"
+
+                                android:textSize="18dp" />
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:id="@+id/aPatentFromGroup"
+                    android:padding="2dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:padding="3dp"
+                        android:textSize="14dp"
+                        android:textColor="@color/colorAccent"
+
+                        android:text="Patient is from"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <RadioGroup
+                        android:id="@+id/aPatentFromGroup1"
+                        android:weightSum="2"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:layout_weight="0.7"
+                            android:text="Chennai"
+                            android:checked="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:id="@+id/cWaving"
+                            android:textSize="16sp"
+                            android:buttonTint="@color/colorPrimaryDark"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+                        <RadioButton
+                            android:layout_weight="0.7"
+                            android:text="Outstation"
+                            android:textSize="16sp"
+                            android:buttonTint="@color/colorPrimaryDark"
+                            android:checked="false"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:id="@+id/aPatentFromGroup2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+
+                    android:padding="2dp"
+                    android:orientation="vertical"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:padding="3dp"
+                        android:textSize="14dp"
+                        android:textColor="@color/colorAccent"
+
+                        android:text="Appointment type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <RadioGroup
+
+                        android:id="@+id/aAppintmentType"
+                        android:weightSum="2"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:layout_weight="0.7"
+                            android:id="@+id/aAppintmentType1"
+                            android:text="OP"
+
+                            android:buttonTint="@color/colorPrimaryDark"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="16sp"
+                            android:checked="true"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+                        <RadioButton
+                            android:layout_weight="0.7"
+                            android:text="IP"
+                            android:textSize="16sp"
+                            android:id="@+id/aAppintmentType2"
+                            android:buttonTint="@color/colorPrimaryDark"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+                    </RadioGroup>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:padding="2dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:padding="3dp"
+                        android:textSize="14dp"
+                        android:textColor="@color/colorAccent"
+
+                        android:text="Admission required"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <RadioGroup
+
+                        android:id="@+id/aRequiredGroup"
+                        android:weightSum="2"
+                        android:textColor="@color/white"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:layout_weight="0.7"
+                            android:id="@+id/aRequiredGroup1"
+                            android:text="Yes"
+                            android:buttonTint="@color/colorPrimaryDark"
+                            android:checked="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="16sp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+                        <RadioButton
+                            android:buttonTint="@color/colorPrimaryDark"
+                            android:layout_weight="0.7"
+                            android:text="No"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="16sp"
+                            android:id="@+id/aRequiredGroup2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+
+                    </RadioGroup>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/roomTypeSpiinnerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp">
+
+                    <LinearLayout
+
+                        android:layout_width="0dp"
+
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:paddingLeft="5dp"
+                            android:text="Room type"
+                            android:textSize="16dp"
+                            android:textColor="@color/colorAccent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:layout_margin="3dp"
+                            android:padding="3dp"
+                            android:background="@drawable/line"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/roomTypespinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:weightSum="1">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:paddingLeft="5dp"
+                            android:text="Pickup"
+                            android:textSize="16dp"
+                            android:textColor="@color/colorAccent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+
+                        <LinearLayout
+                            android:layout_margin="3dp"
+                            android:padding="3dp"
+                            android:background="@drawable/line"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <Spinner
+                                android:id="@+id/pickupSpinner"
+                                android:layout_width="match_parent"
+                                android:layout_height="35dp"/>
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:gravity="center"
+        android:weightSum="2"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <LinearLayout
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/saveAppointment"
+                app:cardCornerRadius="3dp"
+                app:cardBackgroundColor="@color/colorAccent1"
+                android:layout_width="140dp"
+                android:layout_height="35dp">
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:text="SAVE"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:gravity="center"
+            android:visibility="gone"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                app:cardCornerRadius="3dp"
+                app:cardBackgroundColor="@color/colorAccent"
+                android:layout_width="140dp"
+                android:layout_height="35dp">
+                <TextView
+                    android:textStyle="bold"
+                    android:textColor="@color/white"
+                    android:gravity="center"
+                    android:textSize="18dp"
+                    android:text="CLEAR"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>

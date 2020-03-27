@@ -1,0 +1,42 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://jitpack.io" }
+        maven {
+            url "https://phonepe.bintray.com/PhonePeIntentSDK"
+        }
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots" }
+    }
+}
+ext {
+
+    retrofitVersion = '2.3.0'
+
+    rxJavaVersion = '2.2.3'
+    rxAndroidVersion = '2.1.0'
+    rxRelayVersion = '2.0.0'
+    butterknifeVersion = '10.1.0'
+    glideVersion = '4.2.0'
+
+}
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
