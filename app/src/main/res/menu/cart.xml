@@ -22,4 +22,9 @@
         app:showAsAction="always|collapseActionView"
         android:iconTint="@color/white"
         android:title="Search"/>
+    <item
+        android:orderInCategory="100"
+        app:showAsAction="always|collapseActionView"
+        android:id="@+id/your_orders"
+        android:title="Your orders"/>
 </menu>

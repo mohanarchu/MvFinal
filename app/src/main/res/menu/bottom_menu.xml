@@ -23,6 +23,6 @@
 
         android:id="@+id/navigation_pharmacy"
         android:icon="@drawable/ic_local_pharmacy_black_24dp"
-        android:title="Pharmacy" />
+        android:title="Diashop" />
 
 </menu>

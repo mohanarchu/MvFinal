@@ -20,9 +20,11 @@ import android.widget.Toast;
 import com.example.hospital.Appointment.Appointment;
 import com.example.hospital.Appointment.BookApponement;
 import com.example.hospital.Shop.Sopping;
+import com.example.hospital.Shop.reviews.ReviewActivity;
 import com.example.hospital.aboutUs.AboutUs;
 import com.example.hospital.aboutUs.Blog;
 import com.example.hospital.aboutUs.Testimonials;
+import com.example.hospital.cart.orders.YourOrders;
 import com.example.hospital.payment.MakePayment;
 import com.example.hospital.payment.MyPayments;
 import com.smarteist.autoimageslider.IndicatorAnimations;
@@ -71,6 +73,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, ShoppingMain.class));
+              //  startActivity(new Intent(MainActivity.this, YourOrders.class));
             }
         });
         blogs.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +86,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(MainActivity.this, AboutUs.class));
-
             }
         });
 
@@ -98,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
         this.doubleBackToExitPressedOnce = true;
-        Toast.makeText(this, "Please click BACK again to exit", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Please click back again to exit", Toast.LENGTH_SHORT).show();
 
         new Handler().postDelayed(new Runnable() {
 

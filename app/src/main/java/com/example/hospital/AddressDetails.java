@@ -225,22 +225,22 @@ public class AddressDetails extends AppCompatActivity implements OrderView {
                 jsonObject.addProperty("ProductdiscountPrice", "0.0");
                 jsonElements.add(jsonObject);
             }
-        }  else {
+        } else {
             for (int i = 0; i <UtilityClass.getInstance().getList().length; i++){
                 OldPojo.Result or= UtilityClass.getInstance().getList()[i];
                 JsonObject jsonObject = new JsonObject();
               //  jsonObject.addProperty("OrderId", id);
-                jsonObject.addProperty("ProductId", or.getProductId()[0]);
-                jsonObject.addProperty("CategoryName", or.getCategoryName());
-                jsonObject.addProperty("ProductName", or.getProductName());
-                jsonObject.addProperty("ProductCode", or.getProductCode());
-                jsonObject.addProperty("ProductPrice", or.getProductPrice());
-                jsonObject.addProperty("ProductSize", or.getProductSize());
-                jsonObject.addProperty("Quantity", or.getQuantity());
-                jsonObject.addProperty("Color", or.getColor());
-                jsonObject.addProperty("Amount", or.getAmount());
-                jsonObject.addProperty("ProductdiscountPrice", "0.0");
-                jsonElements.add(jsonObject);
+//                jsonObject.addProperty("ProductId", or.getProductId()[0]);
+//                jsonObject.addProperty("CategoryName", or.getCategoryName());
+//                jsonObject.addProperty("ProductName", or.getProductName());
+//                jsonObject.addProperty("ProductCode", or.getProductCode());
+//                jsonObject.addProperty("ProductPrice", or.getProductPrice());
+//                jsonObject.addProperty("ProductSize", or.getProductSize());
+//                jsonObject.addProperty("Quantity", or.getQuantity());
+//                jsonObject.addProperty("Color", or.getColor());
+//                jsonObject.addProperty("Amount", or.getAmount());
+//                jsonObject.addProperty("ProductdiscountPrice", "0.0");
+//                jsonElements.add(jsonObject);
             }
         }
 

@@ -1,5 +1,6 @@
 package com.example.hospital.Appointment;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Build;
@@ -85,6 +86,7 @@ public class Appointment extends AppCompatActivity implements OrderView {
     RadioButton radioButton;
     ArrayList<Integer> age = new ArrayList<>();
       int male;
+    ProgressDialog progressDialog;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,20 +113,16 @@ public class Appointment extends AppCompatActivity implements OrderView {
             }
         });
         createAppoinmemnt.setOnClickListener(view -> {
-            startActivity(new Intent(Appointment.this,BookApponement.class));
+          //  startActivity(new Intent(Appointment.this,BookApponement.class));
             if (nullCheck(patientName) || nullCheck(pAge) || nullCheck(pContactNumber) || nullCheck(pEmail)
                || nullCheck(pNatinality) || nullCheck(pAddress) || nullCheck(pCity) || nullCheck(pState)
                || nullCheck(pPincode) ) {
-
                  showToast("Fill all details");
-
             } else {
-
                 if (!isValidEmail(pEmail.getText().toString())) {
                     showToast("Enter valid email");
                 } else if (!isValid(pContactNumber.getText().toString())) {
                     showToast("Enter valid mobile number");
-
                 } else if (pPincode.getText().toString().length() != 6) {
                     showToast("Enter valid pincode");
                 } else {
@@ -150,8 +148,7 @@ public class Appointment extends AppCompatActivity implements OrderView {
                     appointMentView.makeOrder(jsonObject1);
                 }
             }
-
-            //startActivity(new Intent(Appointment.this, BookApponement.class));
+           // startActivity(new Intent(Appointment.this, BookApponement.class));
         });
         toolbar = findViewById(R.id.appointMents);
         toolbar.setTitle("Appointment");
@@ -175,7 +172,7 @@ public class Appointment extends AppCompatActivity implements OrderView {
         Matcher m = p.matcher(s);
         return (m.find() && m.group().equals(s));
     }
-    public final static boolean isValidEmail(CharSequence target) {
+    public static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
     boolean nullCheck(EditText cusEditText) {
@@ -184,12 +181,17 @@ public class Appointment extends AppCompatActivity implements OrderView {
 
     @Override
     public void showProgress() {
-
+        progressDialog = new ProgressDialog(Appointment.this);
+        progressDialog.setMessage("Please wait..!");
+        progressDialog.show();
+        progressDialog.setCancelable(false);
     }
 
     @Override
     public void hideProgress() {
-
+        if (progressDialog != null){
+            progressDialog.dismiss();
+        }
     }
 
     @Override
@@ -199,12 +201,12 @@ public class Appointment extends AppCompatActivity implements OrderView {
 
     @Override
     public void sucess(String id) {
-
+        startActivity(new Intent(Appointment.this,BookApponement.class));
     }
 
     @Override
     public void placed() {
-        startActivity(new Intent(Appointment.this,BookApponement.class));
+  //      startActivity(new Intent(Appointment.this,BookApponement.class));
 
     }
 

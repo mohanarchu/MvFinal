@@ -10,13 +10,13 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_icon"
         android:supportsRtl="true"
-
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true"
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:usesCleartextTraffic"
         tools:targetApi="m">
-        <activity android:name=".payment.MyPayments"></activity>
+        <activity android:name=".Shop.reviews.ReviewActivity"></activity>
+        <activity android:name=".payment.MyPayments" />
         <activity android:name=".aboutUs.Testimonials" />
         <activity android:name=".payment.MakePayment" />
         <activity android:name=".ShoppingMain" />
@@ -32,7 +32,7 @@
         <activity android:name=".cart.ViewProduct" />
         <activity android:name=".cart.Cart" />
         <activity android:name=".aboutUs.Blog" />
-        <activity android:name=".MainActivity" />
+         <activity android:name=".MainActivity" />
         <activity
             android:name=".AllShoes.AllShoes"
             tools:ignore="InnerclassSeparator" />

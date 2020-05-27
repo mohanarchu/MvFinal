@@ -67,7 +67,7 @@ public  class Shared {
     }
     public static String id(Context context) {
         sharedPreferences = context.getSharedPreferences(keys,0);
-        return sharedPreferences.getString("id", "");
+        return sharedPreferences.getString("id", "0");
     }
     public static boolean isLogged(Context context) {
         sharedPreferences = context.getSharedPreferences(key,0);

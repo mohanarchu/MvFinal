@@ -25,6 +25,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.hospital.R;
+import com.example.hospital.base.BaseActivity;
 import com.example.hospital.cart.OldOrders.OldOrders;
 import com.example.hospital.profile.Profile;
 
@@ -36,7 +37,7 @@ import java.util.Date;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class YourOrders extends AppCompatActivity implements OrderView {
+public class YourOrders extends BaseActivity implements OrderView {
 
 
     OrderPresenter orderPresenter;
@@ -46,23 +47,20 @@ public class YourOrders extends AppCompatActivity implements OrderView {
     @BindView(R.id.recyclerOrders)
     RecyclerView recyclerOrders;
 
-    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_your_orders);
-        ButterKnife.bind(this);
 
+    @Override
+    protected void onViewBound() {
         orderPresenter = new OrderPresenter(getApplicationContext(), this);
         orderPresenter.getProViews();
         setSupportActionBar(ordersTool);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         recyclerOrders.setLayoutManager(layoutManager);
-        Window window = getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent));
+    }
+
+    @Override
+    protected int layoutRes() {
+        return R.layout.activity_your_orders;
     }
 
     @Override
@@ -88,6 +86,9 @@ public class YourOrders extends AppCompatActivity implements OrderView {
 
         if (orderPojo.length != 0){
             recyclerOrders.setAdapter(new MyRecyclerViewAdapter(orderPojo));
+            recyclerOrders.setVisibility(View.VISIBLE);
+        } else  {
+            recyclerOrders.setVisibility(View.GONE);
         }
     }
 

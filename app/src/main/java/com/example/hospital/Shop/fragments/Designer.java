@@ -58,14 +58,12 @@ public class Designer extends FragmentBase implements ProductPresent {
     @Override
     protected void onViewBound(View view) {
 
-
         productModel = new ProductModel(getActivity(), this);
-
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
         itemRecycler.setLayoutManager(gridLayoutManager);
-
         dAll.setChecked(true);
         loadFirst();
+
 
         itemRecycler.addOnScrollListener(new PaginationScrollListener(gridLayoutManager) {
             @Override
@@ -81,6 +79,8 @@ public class Designer extends FragmentBase implements ProductPresent {
             public boolean isLastPage() {
                 return isLastPage;
             }
+
+
 
             @Override
             public boolean isLoading() {
@@ -98,12 +98,16 @@ public class Designer extends FragmentBase implements ProductPresent {
                 radioButton = (RadioButton)view. findViewById(selectedId);
 
                 String buttonString =  radioButton.getText().toString();
-                if (buttonString.equals("All")) {
-                    filterIds = "16,17";
-                }else if (buttonString.equals("Gents")) {
-                    filterIds = "16";
-                }else if (buttonString.equals("Ladies")) {
-                    filterIds = "17";
+                switch (buttonString) {
+                    case "All":
+                        filterIds = "16,17";
+                        break;
+                    case "Gents":
+                        filterIds = "16";
+                        break;
+                    case "Ladies":
+                        filterIds = "17";
+                        break;
                 }
                currentPage = PAGE_START;
                 loadFirst();

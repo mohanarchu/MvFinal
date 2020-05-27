@@ -6,12 +6,14 @@
     android:orientation="vertical"
     app:cardBackgroundColor="@color/white"
     android:weightSum="2"
+
     app:cardCornerRadius="5dp"
     android:layout_margin="3dp"
     android:layout_width="wrap_content"
-    android:layout_height="230dp">
+    android:layout_height="260dp">
     <LinearLayout
-        android:background="@drawable/lines"
+        android:padding="5dp"
+
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="match_parent">
@@ -41,9 +43,10 @@
                 android:layout_height="wrap_content">
                 <TextView
                     android:lines="2"
+                    android:textFontWeight="800"
                     android:textStyle="bold"
                     android:layout_gravity="bottom"
-                    android:textSize="16dp"
+                    android:textSize="15dp"
                     android:text="Shoes"
                     android:id="@+id/productName"
                     android:gravity="center|start"
@@ -63,13 +66,56 @@
                 android:drawableTint="@color/colorAccent"
                 android:textColor="@color/colorAccent"
                 android:padding="3dp"
-
+                android:textStyle="bold"
                 android:layout_gravity="bottom"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content" />
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/total_review"
+                android:focusable="false"
+                android:clickable="false"
+                android:paddingStart="3dp"
+                android:numStars="5"
+                android:progressTint="@color/colorAccent1"
+                android:layout_height="15dp"/>
+
+            <TextView
+                android:textSize="14dp"
+                android:text="( "
+                android:paddingLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:textFontWeight="700"
+                android:textColor="@color/colorAccent1"
+                android:text="0"
+                android:id="@+id/total_review_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+            <TextView
+                android:textSize="14dp"
+                android:text=" )  "
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+         </LinearLayout>
     </LinearLayout>
 
 

@@ -47,19 +47,10 @@ public class Pharmacy extends FragmentBase  implements ProductPresent {
     @Override
     protected void onViewBound(View view) {
         productDb = new ProductDb(getActivity());
-
-
-
-
-
         productModel = new ProductModel(getActivity(),this);
-
         GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(),2);
         itemRecycler.setLayoutManager(gridLayoutManager);
-
-
         productModel.getList("AddedOn","0", "30",true,"14");
-
         itemRecycler.addOnScrollListener(new PaginationScrollListener(gridLayoutManager) {
             @Override
             protected void loadMoreItems() {
@@ -86,13 +77,9 @@ public class Pharmacy extends FragmentBase  implements ProductPresent {
                 List<ProductPojo.Result> list = Arrays.asList(productPojo);
                 if (currentPage != PAGE_START) myRecyclerViewAdapter.removeLoading();
                 myRecyclerViewAdapter.addAll(list);
-
                 if (productPojo.length != 0)  myRecyclerViewAdapter.addLoading();
                 else isLastPage  = true;
                 isLoading = false;
-
-
-
             }
         },300);
     }

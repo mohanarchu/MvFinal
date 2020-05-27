@@ -105,7 +105,7 @@ public class MyPayments extends AppCompatActivity {
                     ((EditText) findViewById(R.id.editTextMerchantKey)).setText("30U733");
                     ((EditText) findViewById(R.id.editTextMerchantSalt)).setText("IJRp5veR");
                 }
-                else{
+                else {
                     //set the test key in test environment
 //                    ((EditText) findViewById(R.id.editTextMerchantKey)).setText("gtKFFX");
 //                    ((EditText) findViewById(R.id.editTextMerchantSalt)).setText("eCwWELxi");
@@ -191,13 +191,19 @@ public class MyPayments extends AppCompatActivity {
          * */
         mPaymentParams.setTxnId("" + System.currentTimeMillis());
 
+
+
         /**
          * Surl --> Success url is where the transaction response is posted by PayU on successful transaction
          * Furl --> Failre url is where the transaction response is posted by PayU on failed transaction
          */
+
+
         mPaymentParams.setSurl("https://payuresponse.firebaseapp.com/success");
         mPaymentParams.setFurl("https://payuresponse.firebaseapp.com/failure");
         mPaymentParams.setNotifyURL(mPaymentParams.getSurl());  //for lazy pay
+
+
 
         /*
          * udf1 to udf5 are options params where you can pass additional information related to transaction.

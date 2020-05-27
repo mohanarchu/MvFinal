@@ -3,6 +3,8 @@ package com.example.hospital.cart.OldOrders;
 import android.content.Context;
 
 import com.example.hospital.Networks.NetworkingUtils;
+import com.example.hospital.Order.OrderPojo;
+import com.example.hospital.profile.Shared;
 import com.google.gson.JsonObject;
 
 import io.reactivex.Observer;
@@ -23,7 +25,8 @@ public class OldOrderPresenter {
     void getDetails(String id   ){
         oldOrdersView.showProgress();
         JsonObject jsonObject = new JsonObject();
-        jsonObject.addProperty("Id",id);
+        jsonObject.addProperty("orderId",id);
+        jsonObject.addProperty("id", Shared.id(context));
         NetworkingUtils.getUserApiInstance().myOrders(jsonObject).subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<OldPojo>() {
             @Override
@@ -56,4 +59,68 @@ public class OldOrderPresenter {
         });
     }
 
+    void  updateReview(JsonObject jsonObject) {
+        oldOrdersView.showProgress();
+
+        NetworkingUtils.getUserApiInstance().updateReview(jsonObject).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<OrderPojo>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(OrderPojo orderPojo) {
+
+                if (orderPojo.getStatus().equals("true")) {
+                    oldOrdersView.showToast("Review updated");
+                    oldOrdersView.hideProgress();
+                } else  {
+                    oldOrdersView.showToast("Review update failed");
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                oldOrdersView.hideProgress();
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
+    void  createReview(JsonObject jsonObject) {
+
+        oldOrdersView.showProgress();
+        NetworkingUtils.getUserApiInstance().order(jsonObject).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<OrderPojo>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(OrderPojo orderPojo) {
+
+                if (orderPojo.getStatus().equals("true")) {
+                    oldOrdersView.showToast("Review updated");
+                    oldOrdersView.hideProgress();
+                } else  {
+                    oldOrdersView.showToast("Review post failed");
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                oldOrdersView.hideProgress();
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
 }

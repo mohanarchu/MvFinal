@@ -25,7 +25,7 @@
             android:padding="6dp"
             android:textStyle="bold"
             android:textFontWeight="500"
-            android:text="The product range includes Diabetic specific products, foot care products, skin care products, diet &amp; weight-loss products, and insulin travelling kits."
+            android:text="The product range includes Diabetic specific products, foot care products, diet  products &amp; insulin travelling kits."
             android:textColor="@color/colorAccent1"
             android:textSize="18sp" />
 

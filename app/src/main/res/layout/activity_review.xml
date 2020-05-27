@@ -1,35 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    tools:context=".Shop.reviews.ReviewActivity">
 
-    tools:context=".cart.orders.YourOrders">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/ordersTool"
-        app:title="Your orders"
+        app:title="Reviews"
         app:titleTextColor="@color/white"
         android:background="@color/colorAccent1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
-    <TextView
-        android:gravity="center"
-        android:text="No orders found"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-    </TextView>
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:visibility="gone"
-        android:layout_below="@id/ordersTool"
-        android:id="@+id/recyclerOrders"
         android:background="@color/white"
-        android:layout_height="match_parent"
-        tools:ignore="MissingConstraints" />
+        android:id="@+id/all_reviews"
+        android:padding="5dp"
+        android:layout_height="match_parent"/>
 
-</RelativeLayout>
+</LinearLayout>

@@ -3,18 +3,19 @@ apply plugin: 'com.android.application'
 android {
     signingConfigs {
         config {
-            keyAlias 'key0'
-            keyPassword 'mvhospital'
+
+            keyPassword 'MvDiabetes@2020'
             //   storeFile file('E:/Android/Workingfiles/MvHospital/MVH')
             storeFile file('/Users/cbots/Projects/MVH')
-            storePassword 'mvhospital'
+            keyAlias = 'MvDiabetes'
+            storePassword 'MvDiabetes@2020'
         }
         debug {
-           //  storeFile file('E:/Android/Workingfiles/MvHospital/MVH')
+            //  storeFile file('E:/Android/Workingfiles/MvHospital/MVH')
             storeFile file('/Users/cbots/Projects/MVH')
-            storePassword 'mvhospital'
-            keyAlias = 'key0'
-            keyPassword 'mvhospital'
+            storePassword 'MvDiabetes@2020'
+            keyAlias = 'MvDiabetes'
+            keyPassword 'MvDiabetes@2020'
         }
     }
     compileSdkVersion 29
@@ -76,6 +77,8 @@ dependencies {
     implementation "com.hanks:htextview-typer:0.1.6"
     implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
     implementation 'com.codesgood:justifiedtextview:1.1.0'
+    implementation 'me.zhanghai.android.materialratingbar:library:1.4.0'
+    implementation 'com.github.giswangsj:AndRatingBar:1.0.4'
     implementation project(':sdkui')
 
 }

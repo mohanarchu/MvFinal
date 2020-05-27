@@ -83,6 +83,18 @@ public class ProductPojo {
 
         private String status;
 
+        private String TotalReview;
+
+        private String rating;
+
+        public String getTotalReview() {
+            return TotalReview;
+        }
+
+        public String getRating() {
+            return rating;
+        }
+
         public String getCategoryId ()
         {
             return CategoryId;

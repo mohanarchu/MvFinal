@@ -9,11 +9,13 @@ import com.example.hospital.Register.LoginPojo;
 import com.example.hospital.Register.OtpPojo;
 import com.example.hospital.Register.RegisterPojo;
 import com.example.hospital.Shop.ProductPojo;
+import com.example.hospital.Shop.reviews.ReviewPojo;
 import com.example.hospital.cart.ColorPojo;
 import com.example.hospital.cart.DetailsPojo;
 import com.example.hospital.cart.ImegesPojo;
 import com.example.hospital.cart.OldOrders.OldPojo;
 import com.example.hospital.cart.SizePojo;
+import com.example.hospital.cart.pojo.ProductCommomPojo;
 import com.example.hospital.payment.PaymentPojo;
 import com.example.hospital.profile.CusPojo;
 import com.example.hospital.profile.ProPojo;
@@ -43,6 +45,14 @@ public interface MainInterface {
      @POST("/api/Product")
      @Headers({"Content-Type: application/json;charset=UTF-8"})
      Observable<DetailsPojo> getProductDetails(@Body JsonObject statePost);
+
+     @POST("/api/getProductDetails")
+     @Headers({"Content-Type: application/json;charset=UTF-8"})
+     Observable<ProductCommomPojo> getProduct(@Body JsonObject statePost);
+
+     @POST("/api/UpdateReview")
+     @Headers({"Content-Type: application/json;charset=UTF-8"})
+     Observable<OrderPojo> updateReview(@Body JsonObject statePost);
 
 
      @POST("/api/Product")
@@ -93,7 +103,9 @@ public interface MainInterface {
      @Headers({"Content-Type: application/json;charset=UTF-8"})
      Observable<OldPojo> myOrders(@Body JsonObject statePost);
 
-
+     @POST("/api/List")
+     @Headers({"Content-Type: application/json;charset=UTF-8"})
+     Observable<ReviewPojo> getList(@Body JsonObject statePost);
 
 
 //

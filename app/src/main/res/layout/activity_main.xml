@@ -16,7 +16,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-
     </androidx.appcompat.widget.Toolbar>
 
     <LinearLayout
@@ -31,8 +30,6 @@
             android:layout_width="match_parent"
             android:layout_height="240dp"
             android:orientation="horizontal">
-
-
 
             <androidx.cardview.widget.CardView
                 android:layout_margin="2dp"
@@ -52,14 +49,29 @@
 
 
 
+
         </LinearLayout>
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:text="@string/warning"
+            android:padding="25dp"
+            android:textColor="@color/red"
+            android:textSize="15sp"
+            android:justificationMode="none"
+            android:gravity="center|start|end"
+            android:layout_margin="3dp"
+            android:layout_height="wrap_content">
+
+
+        </TextView>
 
 
         <LinearLayout
             android:gravity="center"
             android:weightSum="2"
-            android:layout_weight="1"
+            android:layout_weight="0.8"
             android:layout_width="match_parent"
             android:layout_height="0dp">
 
@@ -152,7 +164,7 @@
             </LinearLayout>
         </LinearLayout>
         <LinearLayout
-            android:layout_weight="1"
+            android:layout_weight="1.5"
             android:layout_width="match_parent"
             android:layout_height="0dp">
             <LinearLayout
@@ -284,13 +296,13 @@
             android:textStyle="bold"
             android:gravity="center"
             android:textColor="@color/black"
-
             android:layout_marginBottom="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
 
     </LinearLayout>
+
 
 
 </LinearLayout>

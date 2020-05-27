@@ -6,32 +6,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:orientation="vertical"
-    android:background="@color/colorAccent"
+
     android:layout_height="match_parent"
     tools:context=".cart.OldOrders.OldOrders">
 
 
     <androidx.appcompat.widget.Toolbar
-        app:title="Products"
-        app:titleTextColor="@color/colorAccent1"
-        android:background="@color/white"
+        app:title="Ordered Products"
+        app:titleTextColor="@color/white"
+        android:background="@color/colorAccent1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/oldOrderRecycler"
+        android:background="@color/white"
 
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/oldOrderRecycler"
-            android:background="@color/white"
-            android:layout_marginBottom="40dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+
 
 
         <LinearLayout
+            android:visibility="gone"
             android:background="@color/white"
             android:id="@+id/reorderItems"
             android:layout_alignParentBottom="true"

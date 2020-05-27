@@ -3,7 +3,10 @@ package com.example.hospital;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.style.ForegroundColorSpan;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,6 +27,7 @@ import com.example.hospital.Shop.fragments.Pharmacy;
 import com.example.hospital.Shop.fragments.Unique;
 import com.example.hospital.base.BaseActivity;
 import com.example.hospital.cart.Cart;
+import com.example.hospital.cart.orders.YourOrders;
 import com.example.hospital.profile.Profile;
 import com.example.hospital.profile.Shared;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -52,6 +56,11 @@ public class ShoppingMain extends BaseActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.cart,menu);
+        int positionOfMenuItem = 3;
+        MenuItem item = menu.getItem(positionOfMenuItem);
+        SpannableString s = new SpannableString("My orders");
+        s.setSpan(new ForegroundColorSpan(Color.WHITE), 0, s.length(), 0);
+        item.setTitle(s);
         return super.onCreateOptionsMenu(menu);
     }
 
@@ -142,6 +151,8 @@ public class ShoppingMain extends BaseActivity {
             //  intent.putExtra("key",1);
             startActivity(intent);
 
+        } else if (item.getItemId() == R.id.your_orders) {
+            startActivity(new Intent(getApplicationContext(), YourOrders.class));
         }
         return super.onOptionsItemSelected(item);
     }

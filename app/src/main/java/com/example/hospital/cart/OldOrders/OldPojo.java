@@ -34,39 +34,53 @@ public class OldPojo {
 
     public class Result
     {
+        private String Description;
+
+        private String ProductSize;
+
         private String ProductName;
 
-        private String ProductCode;
+        private String UserId;
 
-        private String ProductImageId;
+        private String ReviewId;
+
+        private String ProductImage;
 
         private String Color;
 
         private String Amount;
 
+        private String Rating;
+
         private String Quantity;
 
-        private String Thumbimage;
-
-        private String[] ProductId;
+        private String ProductId;
 
         private String ProductPrice;
 
-        private String ProductdiscountPrice;
+        private String OrderDate;
 
-        private String OrderId;
+        public String getProductSize ()
+        {
+            return ProductSize;
+        }
 
-        private String ProductSize;
+        public String getDescription() {
+            return Description;
+        }
 
-        private String Largeimage;
-
-        private String CategoryName;
-
-        private String OrderDetailsId;
+        public void setProductSize (String ProductSize)
+        {
+            this.ProductSize = ProductSize;
+        }
 
         public String getProductName ()
         {
             return ProductName;
+        }
+
+        public String getReviewId() {
+            return ReviewId;
         }
 
         public void setProductName (String ProductName)
@@ -74,24 +88,24 @@ public class OldPojo {
             this.ProductName = ProductName;
         }
 
-        public String getProductCode ()
+        public String getUserId ()
         {
-            return ProductCode;
+            return UserId;
         }
 
-        public void setProductCode (String ProductCode)
+        public void setUserId (String UserId)
         {
-            this.ProductCode = ProductCode;
+            this.UserId = UserId;
         }
 
-        public String getProductImageId ()
+        public String getProductImage ()
         {
-            return ProductImageId;
+            return ProductImage;
         }
 
-        public void setProductImageId (String ProductImageId)
+        public void setProductImage (String ProductImage)
         {
-            this.ProductImageId = ProductImageId;
+            this.ProductImage = ProductImage;
         }
 
         public String getColor ()
@@ -114,6 +128,16 @@ public class OldPojo {
             this.Amount = Amount;
         }
 
+        public String getRating ()
+        {
+            return Rating;
+        }
+
+        public void setRating (String Rating)
+        {
+            this.Rating = Rating;
+        }
+
         public String getQuantity ()
         {
             return Quantity;
@@ -124,22 +148,12 @@ public class OldPojo {
             this.Quantity = Quantity;
         }
 
-        public String getThumbimage ()
-        {
-            return Thumbimage;
-        }
-
-        public void setThumbimage (String Thumbimage)
-        {
-            this.Thumbimage = Thumbimage;
-        }
-
-        public String[] getProductId ()
+        public String getProductId ()
         {
             return ProductId;
         }
 
-        public void setProductId (String[] ProductId)
+        public void setProductId (String ProductId)
         {
             this.ProductId = ProductId;
         }
@@ -154,70 +168,22 @@ public class OldPojo {
             this.ProductPrice = ProductPrice;
         }
 
-        public String getProductdiscountPrice ()
+        public String getOrderDate ()
         {
-            return ProductdiscountPrice;
+            return OrderDate;
         }
 
-        public void setProductdiscountPrice (String ProductdiscountPrice)
+        public void setOrderDate (String OrderDate)
         {
-            this.ProductdiscountPrice = ProductdiscountPrice;
-        }
-
-        public String getOrderId ()
-        {
-            return OrderId;
-        }
-
-        public void setOrderId (String OrderId)
-        {
-            this.OrderId = OrderId;
-        }
-
-        public String getProductSize ()
-        {
-            return ProductSize;
-        }
-
-        public void setProductSize (String ProductSize)
-        {
-            this.ProductSize = ProductSize;
-        }
-
-        public String getLargeimage ()
-        {
-            return Largeimage;
-        }
-
-        public void setLargeimage (String Largeimage)
-        {
-            this.Largeimage = Largeimage;
-        }
-
-        public String getCategoryName ()
-        {
-            return CategoryName;
-        }
-
-        public void setCategoryName (String CategoryName)
-        {
-            this.CategoryName = CategoryName;
-        }
-
-        public String getOrderDetailsId ()
-        {
-            return OrderDetailsId;
-        }
-
-        public void setOrderDetailsId (String OrderDetailsId)
-        {
-            this.OrderDetailsId = OrderDetailsId;
+            this.OrderDate = OrderDate;
         }
 
         @Override
         public String toString()
         {
-            return "ClassPojo [ProductName = "+ProductName+", ProductCode = "+ProductCode+", ProductImageId = "+ProductImageId+", Color = "+Color+", Amount = "+Amount+", Quantity = "+Quantity+", Thumbimage = "+Thumbimage+", ProductId = "+ProductId+", ProductPrice = "+ProductPrice+", ProductdiscountPrice = "+ProductdiscountPrice+", OrderId = "+OrderId+", ProductSize = "+ProductSize+", Largeimage = "+Largeimage+", CategoryName = "+CategoryName+", OrderDetailsId = "+OrderDetailsId+"]";
+            return "ClassPojo [ProductSize = "+ProductSize+", ProductName = "+ProductName+", UserId = "+UserId+", ProductImage = "+ProductImage+", Color = "+Color+", Amount = "+Amount+", Rating = "+Rating+", Quantity = "+Quantity+", ProductId = "+ProductId+", ProductPrice = "+ProductPrice+", OrderDate = "+OrderDate+"]";
         }
     }
+
+
 }

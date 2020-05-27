@@ -68,6 +68,8 @@ public class Sopping extends FragmentBase implements ProductPresent{
 
     @Override
     protected void onViewBound(View view) {
+
+        Log.i("TAG","User id "+Shared.id(getActivity()) );
         productDb = new ProductDb(getActivity());
 
 

@@ -30,6 +30,7 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
+                android:layout_marginBottom="20dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -65,20 +66,33 @@
                             android:drawablePadding="4dp"
                             android:textColor="@color/colorPrimaryDark"
                             android:id="@+id/amountOfPro"
-                            android:text="20"
+                            android:text="--"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"/>
 
                     </RelativeLayout>
 
-                    <TextView
+
+
+                    <com.codesgood.views.JustifiedTextView
                         android:layout_marginTop="10dp"
                         android:textStyle="bold"
                         android:textColor="@color/black1"
                         android:id="@+id/alignText"
-                        android:lines="4"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
+                    
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/viewMoreButton"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        android:gravity="end"
+                        android:text="View more..."
+                        android:textSize="15dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
 
 
@@ -170,6 +184,7 @@
                                     android:layout_width="0dp"
                                     android:layout_height="wrap_content">
                                     <TextView
+
                                         android:layout_weight="1"
                                         android:layout_alignParentLeft="true"
                                         android:id="@+id/sizeSpinner"
@@ -239,7 +254,7 @@
                     android:orientation="vertical"
                    android:gravity="top"
                     android:layout_width="match_parent"
-                    android:layout_height="200dp">
+                    android:layout_height="130dp">
 
                     <LinearLayout
                         android:gravity="center"
@@ -290,6 +305,169 @@
                         </androidx.cardview.widget.CardView>
                     </LinearLayout>
                 </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/rate_product"
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:gravity="center|start"
+                        android:textFontWeight="400"
+                        android:textColor="@color/black"
+                        android:text="Rate this product"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                        android:layout_width="match_parent"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="25dp"
+                        android:numStars="5"
+                        android:stepSize="20"
+                        android:id="@+id/star_rating"
+                        android:layout_height="40dp"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:visibility="gone"
+                    android:id="@+id/your_rating_layout"
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textSize="18dp"
+                        android:textStyle="bold"
+                        android:gravity="center|start"
+                        android:textFontWeight="400"
+                        android:textColor="@color/black"
+                        android:text="Your Review"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+
+                    <LinearLayout
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                            android:layout_width="150dp"
+                            android:layout_gravity="start"
+
+                            android:numStars="5"
+                            android:stepSize="20"
+                            android:paddingStart="-6dp"
+                            android:id="@+id/your_rating"
+                            android:layout_height="20dp"/>
+
+
+                        <TextView
+                            android:id="@+id/edit_review"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:text="Edit review"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"/>
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_marginTop="5dp"
+                    android:background="@color/black1"
+                    android:layout_width="match_parent"
+                    android:layout_height="0.4dp"/>
+
+                <LinearLayout
+                    android:padding="10dp"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <LinearLayout
+                            android:gravity="center|start"
+                            android:layout_centerInParent="true"
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp">
+
+                            <TextView
+                                android:textSize="18dp"
+                                android:textStyle="bold"
+                                android:textColor="@color/black"
+                                android:text="Reviews"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                            <TextView
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:textFontWeight="700"
+                                android:text="( "
+                                android:paddingLeft="10dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:textFontWeight="700"
+                                android:textColor="@color/colorAccent1"
+                                android:text="0"
+                                android:id="@+id/total_user_review"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+
+                            <TextView
+                                android:textSize="16dp"
+                                android:textStyle="bold"
+                                android:text=" )  "
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"/>
+                        </LinearLayout>
+
+                        <TextView
+                            android:id="@+id/view_all_reviews"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            android:textColor="@color/black"
+                            android:layout_alignParentRight="true"
+                            android:text="View all reviews"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"/>
+
+                    </RelativeLayout>
+
+
+
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:paddingTop="10dp"
+                        android:id="@+id/reviews_recycler"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
+                </LinearLayout>
+
+
+
+
+
+
 
             </LinearLayout>
 

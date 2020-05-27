@@ -1,18 +1,27 @@
 package com.example.hospital.Appointment;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.DatePickerDialog;
+import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.Layout;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
@@ -27,12 +36,14 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
 
+import com.codesgood.views.JustifiedTextView;
 import com.example.hospital.MainActivity;
 import com.example.hospital.Order.OrderPresenter;
 import com.example.hospital.Order.OrderView;
 import com.example.hospital.R;
 import com.google.gson.JsonObject;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -86,7 +97,8 @@ public class BookApponement extends AppCompatActivity implements OrderView {
     @BindView(R.id.pickupSpinner)
     Spinner pickupSpinner;
     RadioButton adminnsionRequiredRadio, appointmentTypeRadio, patientFromRdaio;
-    String appintmentType = "OP", patientFrom = "Outstation", adminnisonRequired = "No", roomType = rooms[0], pickupType = pickUp[0];
+    String appintmentType = "OP", patientFrom = "Outstation", adminnisonRequired = "No",
+            roomType = rooms[0], pickupType = pickUp[0];
     OrderPresenter orderPresenter;
     @BindView(R.id.saveAppointment)
     CardView saveAppointment;
@@ -96,6 +108,9 @@ public class BookApponement extends AppCompatActivity implements OrderView {
     TextView appointmentDate1;
     private int year, month, day;
     String date1,date2 = "";
+    ProgressDialog progressDialog;
+
+
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
@@ -235,15 +250,19 @@ public class BookApponement extends AppCompatActivity implements OrderView {
 
 
     }
-
     @Override
     public void showProgress() {
-
+        progressDialog = new ProgressDialog(BookApponement.this);
+        progressDialog.setMessage("Please wait..!");
+        progressDialog.show();
+        progressDialog.setCancelable(false);
     }
 
     @Override
     public void hideProgress() {
-
+        if (progressDialog != null){
+            progressDialog.dismiss();
+        }
     }
 
     @Override
@@ -251,15 +270,34 @@ public class BookApponement extends AppCompatActivity implements OrderView {
         Toast.makeText(getApplicationContext(),message,Toast.LENGTH_SHORT).show();
     }
 
+
+    @SuppressLint("NewApi")
+    void showDialogue() {
+        AlertDialog alertDialog = new AlertDialog.Builder(BookApponement.this).create();
+        alertDialog.setMessage(Html.fromHtml("<font color='#FF7F27'>"+getResources().getString(R.string.appintment_message)+"</font>"));
+        alertDialog.setCancelable(false);
+        alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "OK",
+                (dialog, which) -> {
+                    startActivity(new Intent(BookApponement.this, MainActivity.class));
+                    finish();
+                });
+        alertDialog.show();
+        TextView textView = (TextView) alertDialog.findViewById(android.R.id.message);
+        textView.setGravity(Gravity.CENTER);
+        textView.setJustificationMode(Layout.JUSTIFICATION_MODE_INTER_WORD);
+        Button button1 = alertDialog.findViewById(android.R.id.button1);
+        button1.setTextSize(20);
+        textView.setTextSize(18.0f);
+    }
+
     @Override
     public void sucess(String id) {
-
+        showDialogue();
     }
 
     @Override
     public void placed() {
-        startActivity(new Intent(BookApponement.this, MainActivity.class));
-        finish();
+        showDialogue();
     }
 
     public void setDate1() {
@@ -308,12 +346,12 @@ public class BookApponement extends AppCompatActivity implements OrderView {
     @OnClick(R.id.saveAppointment)
     public void onViewClicked() {
 
-        if (appointmentDate1.getText().toString().isEmpty()) {
 
+        if (appointmentDate1.getText().toString().isEmpty()) {
             showToast("Choose appointment date");
         } else {
 
-            String date = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
+            String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS",
                     Locale.getDefault()).format(new Date());
             JsonObject jsonObject = new JsonObject();
             jsonObject.addProperty("RequestDate", date);
@@ -323,14 +361,26 @@ public class BookApponement extends AppCompatActivity implements OrderView {
                     String.valueOf(1) : String.valueOf(2));
             jsonObject.addProperty("IsAdmission", adminnisonRequired.equals("Yes") ? 1 : 0);
             jsonObject.addProperty("DoctorName", doctorName.getText().toString());
-            jsonObject.addProperty("Date1", date1);
-            jsonObject.addProperty("Date2", date2);
+            jsonObject.addProperty("Date1", getDate(date1));
+            jsonObject.addProperty("Date2", getDate(date2));
             JsonObject jsonObject1 = new JsonObject();
             jsonObject1.add("data", jsonObject);
             jsonObject1.addProperty("table", "Appoinments");
             jsonObject1.addProperty("multipleInsert", false);
             orderPresenter.makeOrder(jsonObject1);
         }
-
+    }
+    public static String getDate(String hr) {
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sdfs = new SimpleDateFormat("dd-MM-yyyy");
+        Date dt;
+        try {
+            dt = sdfs.parse(hr);
+            System.out.println("Time Display: " + sdf.format(dt)); // <-- I got result here
+            return  sdf.format(dt);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return "";
     }
 }

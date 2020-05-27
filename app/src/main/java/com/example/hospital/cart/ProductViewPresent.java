@@ -4,7 +4,9 @@ import android.content.Context;
 import android.util.Log;
 
 import com.example.hospital.Networks.NetworkingUtils;
+import com.example.hospital.Order.OrderPojo;
 import com.example.hospital.Shop.ProductPojo;
+import com.example.hospital.cart.pojo.ProductCommomPojo;
 import com.google.gson.JsonObject;
 
 import io.reactivex.Observer;
@@ -58,11 +60,116 @@ public class ProductViewPresent {
             }
         });
 
+    }
 
 
+    void  updateReview(JsonObject jsonObject) {
+        productPresent.showProgress();
+
+        NetworkingUtils.getUserApiInstance().updateReview(jsonObject).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<OrderPojo>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(OrderPojo orderPojo) {
+
+                if (orderPojo.getStatus().equals("true")) {
+                    productPresent.showToast("Review updated");
+                    productPresent.hideProgress();
+                } else  {
+                    productPresent.showToast("Review update failed");
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
+    void  createReview(JsonObject jsonObject) {
+
+        productPresent.showProgress();
+        NetworkingUtils.getUserApiInstance().order(jsonObject).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<OrderPojo>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(OrderPojo orderPojo) {
+
+                if (orderPojo.getStatus().equals("true")) {
+                    productPresent.showToast("Review updated");
+                    productPresent.hideProgress();
+                } else  {
+                    productPresent.showToast("Review post failed");
+                }
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+        });
+    }
+
+
+
+
+    public void getProduct(String id,String Userd, String table ) {
+
+        productPresent.showProgress();
+
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("Id", id);
+        jsonObject.addProperty("UserId", Userd);
+        NetworkingUtils.getUserApiInstance().getProduct(jsonObject).subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<ProductCommomPojo>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(ProductCommomPojo productPojo) {
+
+                productPresent.showProductCommom(productPojo);
+                productPresent.hideProgress();
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                // productPresent.hideProgress();
+                // Log.i("TAg","ProductDetails"+e.toString());
+            }
+
+            @Override
+            public void onComplete() {
+
+            }
+          });
 
     }
-   void getColor(String id){
+
+
+
+
+        void getColor(String id){
        JsonObject jsonObjects = new JsonObject();
        jsonObjects.addProperty("Id",id);
        jsonObjects.addProperty("refernce","ProductId");

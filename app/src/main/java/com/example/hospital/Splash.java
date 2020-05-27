@@ -38,7 +38,9 @@ public class Splash extends AppCompatActivity {
         window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.black));
         window.setNavigationBarColor(ContextCompat.getColor(getApplicationContext(), R.color.black));
         ImageView imageView = (ImageView) findViewById(R.id.imageToVisioble);
-
+//        Intent mainIntent = new Intent(Splash.this, MainActivity.class);
+//        Splash.this.startActivity(mainIntent);
+//        Splash.this.finish();
         try {
             pl.droidsonroids.gif.GifDrawable drawable = new GifDrawable( getResources(),R.drawable.splash_gif);
             drawable.setLoopCount(1);

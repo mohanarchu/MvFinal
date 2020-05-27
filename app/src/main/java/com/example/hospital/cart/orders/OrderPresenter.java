@@ -20,14 +20,13 @@ public class OrderPresenter {
         this.context = context;
         this.orderView = orderView;
     }
-
-    void getProViews(){
+    void getProViews() {
         orderView.showProgress();
         JsonObject jsonObject = new JsonObject();
+
         jsonObject.addProperty("Id", Shared.id(context));
         jsonObject.addProperty("refernce","UserId");
         jsonObject.addProperty("table","OrderMaster");
-
       //  Log.i("TAG","Orders details"+ jsonObject);
         NetworkingUtils.getUserApiInstance().getAllorders (jsonObject).subscribeOn(Schedulers.io()).
                 observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<OrderPojo>() {

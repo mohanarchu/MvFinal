@@ -48,7 +48,7 @@ public class OrderPresenter {
             @Override
             public void onError(Throwable e) {
                 orderView.hideProgress();
-                Log.i("TAG", "ProductArray" + e.toString());
+
             }
 
             @Override
@@ -75,7 +75,7 @@ public class OrderPresenter {
 
                 if (orderPojo.getStatus().equals("true")){
                     orderView.hideProgress();
-                  orderView.placed();
+                    orderView.placed();
                     orderView.showToast("Order placed successfully");
                 }else {
                     orderView.showToast("Try again");

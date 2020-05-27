@@ -30,11 +30,8 @@ public class ProductDb extends SQLiteOpenHelper {
     public static final String IMAGE = "image";
     public static String strSeparator = "__,__";
     public ProductDb(Context context ) {
-
         super(context, DB_NAME, null, DB_VERSION);
-
     }
-
 
     @Override
     public void onCreate(SQLiteDatabase db) {
@@ -67,7 +64,20 @@ public class ProductDb extends SQLiteOpenHelper {
     public void addProducts(String productname,String productId,String color,String code,String quantity
                 ,String size,String price,String sizeArray,String colorArray,String image ) {
         SQLiteDatabase db = this.getWritableDatabase();
-
+        ContentValues contentValues = new ContentValues();
+        String upperString = productname.substring(0,1).toUpperCase() + productname.substring(1);
+        contentValues.put(P_NAME, upperString);
+        contentValues.put(PRODUCT_ID,productId);
+        contentValues.put(P_QUANTITY, quantity);
+        contentValues.put(P_SIZE,size);
+        contentValues.put(P_COLOR,color);
+        contentValues.put(P_PRICE,price);
+        contentValues.put(P_CODE,code);
+        contentValues.put(SIZE_ARRAY,sizeArray);
+        contentValues.put(COLOR_ARRAY,colorArray);
+        contentValues.put(TOTAL,price);
+        contentValues.put(IMAGE,image);
+        db.insert(TABLE_NAME, null, contentValues);
         db.close();
     }
     public List<proLocalArray> getAllProducts()
@@ -78,7 +88,20 @@ public class ProductDb extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(selectQuery, null);
         if (cursor.moveToFirst()) {
             do {
-
+                    proLocalArray product = new proLocalArray();
+                    product.setSerial(cursor.getString(0));
+                    product.setName(cursor.getString(1));
+                    product.setId(cursor.getString(2));
+                    product.setCode(cursor.getString(3));
+                    product.setColor(cursor.getString(4));
+                    product.setSize(cursor.getString(5));
+                    product.setQuantity(cursor.getString(6));
+                    product.setPrice(cursor.getString(7));
+                    product.setColorArray(convertStringToArray(cursor.getString(8)));
+                    product.setSizeArray(convertStringToArray(cursor.getString(9)));
+                    product.setTotalAmount(cursor.getString(10));
+                    product.setImageURL(cursor.getString(11));
+                    contactList.add(product);
             } while (cursor.moveToNext());
         }
         return contactList;
@@ -89,8 +112,12 @@ public class ProductDb extends SQLiteOpenHelper {
     }
     public int updateProducts(String id, String  quantity,String color,String size,String total ) {
         SQLiteDatabase db = this.getWritableDatabase();
-
-        return db.update(TABLE_NAME, null, SERIAL_NO + " = ?",
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(P_QUANTITY, quantity);
+        contentValues.put(P_COLOR,color);
+        contentValues.put(P_SIZE,size);
+        contentValues.put(TOTAL,total);
+        return db.update(TABLE_NAME, contentValues, SERIAL_NO + " = ?",
                 new String[]{String.valueOf(id)});
     }
     public Cursor getId(String  id)
@@ -98,7 +125,9 @@ public class ProductDb extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM customers WHERE serial_no = " + "'"+ id +"'";
         Cursor  cursor = db.rawQuery(query,null);
-
+        if (cursor != null) {
+            cursor.moveToFirst();
+        }
         return cursor;
     }
     public void deleteProduct(String id) {

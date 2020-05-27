@@ -39,9 +39,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void showDialogue(){
 //        AlertDialog.Builder builder = new AlertDialog.Builder(BaseActivity.this);
 //        builder.setCancelable(false); // if you want user to wait for some process to finish,
-//        builder.setView(R.layout.alery_dialogue_layout);
+//        builder.setView(R.layout);
 //        dialog  = builder.create();
 //        dialog.show();
+
     }
 
     protected void dismissDialogue(){
