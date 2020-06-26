@@ -6,7 +6,7 @@
     android:background="@color/backColor"
     android:orientation="vertical"
     android:gravity="center|top"
-    tools:context=".aboutUs.Founder">
+    tools:context="mv.hospital.aboutUs.Founder">
 
     <LinearLayout
         android:background="@color/colorAccent"

@@ -10,7 +10,7 @@
     android:padding="5dp"
 
     android:background="@color/white"
-    tools:context=".aboutUs.Testimonials">
+    tools:context="mv.hospital.aboutUs.Testimonials">
 
 
 

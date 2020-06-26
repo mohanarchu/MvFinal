@@ -311,12 +311,7 @@ public class PayUBaseActivity extends FragmentActivity implements PaymentRelated
             if(payuResponse.isCashCardAvailable()){
                 paymentOptionsList.add(SdkUIConstants.CASH_CARDS);
             }
-
-
-
             }
-
-
             else {
             Toast.makeText(this, "Something went wrong : " + payuResponse.getResponseStatus().getResult(), Toast.LENGTH_LONG).show();
         }
@@ -506,16 +501,22 @@ public class PayUBaseActivity extends FragmentActivity implements PaymentRelated
             intent.putExtra(PayuConstants.PAYU_CONFIG, payuConfig);
             intent.putExtra("isStandAlonePhonePeAvailable",isStandAlonePhonePeAvailable);
             intent.putExtra("isPaymentByPhonePe",isPaymentByPhonePe);
-
             startActivityForResult(intent, PayuConstants.PAYU_REQUEST_CODE);
         } else {
             if (mPostData != null)
                 Toast.makeText(this, mPostData.getResult(), Toast.LENGTH_LONG).show();
-
         }
     }
 
-
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PayuConstants.PAYU_REQUEST_CODE) {
+            //Lets pass the result back to previous activity
+            setResult(resultCode, data);
+            finish();
+        }
+    }
 
 
 
@@ -735,27 +736,15 @@ public class PayUBaseActivity extends FragmentActivity implements PaymentRelated
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-
-
                 } else {
                     etVirtualAddress.setError(getBaseContext().getText(R.string.error_invalid_vpa));
                 }
-
-
             }
         }
 
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PayuConstants.PAYU_REQUEST_CODE) {
-            //Lets pass the result back to previous activity
-            setResult(resultCode, data);
-            finish();
-        }
-    }
+
 
     public void hideKeyboard() {
         InputMethodManager inputMethodManager = (InputMethodManager) this.getSystemService(Activity.INPUT_METHOD_SERVICE);

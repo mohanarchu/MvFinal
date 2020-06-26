@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.example.hospital">
+    package="com.hospital">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -15,45 +15,45 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:replace="android:usesCleartextTraffic"
         tools:targetApi="m">
-        <activity android:name=".Shop.reviews.ReviewActivity"></activity>
-        <activity android:name=".payment.MyPayments" />
-        <activity android:name=".aboutUs.Testimonials" />
-        <activity android:name=".payment.MakePayment" />
-        <activity android:name=".ShoppingMain" />
-        <activity android:name=".cart.OldOrders.OldOrders" />
-        <activity android:name=".cart.orders.YourOrders" />
-        <activity android:name=".Register.OtpView" />
-        <activity android:name=".profile.Profile" />
-        <activity android:name=".aboutUs.BlogView" />
-        <activity android:name=".AddressDetails" />
+        <activity android:name="mv.hospital.Shop.reviews.ReviewActivity"></activity>
+        <activity android:name="mv.hospital.payment.MyPayments" />
+        <activity android:name="mv.hospital.aboutUs.Testimonials" />
+        <activity android:name="mv.hospital.payment.MakePayment" />
+        <activity android:name="mv.hospital.ShoppingMain" />
+        <activity android:name="mv.hospital.cart.OldOrders.OldOrders" />
+        <activity android:name="mv.hospital.cart.orders.YourOrders" />
+        <activity android:name="mv.hospital.Register.OtpView" />
+        <activity android:name="mv.hospital.profile.Profile" />
+        <activity android:name="mv.hospital.aboutUs.BlogView" />
+        <activity android:name="mv.hospital.AddressDetails" />
         <activity
-            android:name=".Register.Login"
+            android:name="mv.hospital.Register.Login"
             tools:ignore="InnerclassSeparator" />
-        <activity android:name=".cart.ViewProduct" />
-        <activity android:name=".cart.Cart" />
-        <activity android:name=".aboutUs.Blog" />
-         <activity android:name=".MainActivity" />
+        <activity android:name="mv.hospital.cart.ViewProduct" />
+        <activity android:name="mv.hospital.cart.Cart" />
+        <activity android:name="mv.hospital.aboutUs.Blog" />
+         <activity android:name="mv.hospital.MainActivity" />
         <activity
-            android:name=".AllShoes.AllShoes"
-            tools:ignore="InnerclassSeparator" />
-        <activity
-            android:name=".Appointment.Appointment"
+            android:name="mv.hospital.AllShoes.AllShoes"
             tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".Shop.Sopping"
+            android:name="mv.hospital.Appointment.Appointment"
             tools:ignore="InnerclassSeparator" />
         <activity
-            android:name=".Appointment.BookApponement"
+            android:name="mv.hospital.Shop.Sopping"
             tools:ignore="InnerclassSeparator" />
-        <activity android:name=".Splash">
+        <activity
+            android:name="mv.hospital.Appointment.BookApponement"
+            tools:ignore="InnerclassSeparator" />
+        <activity android:name="mv.hospital.Splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".aboutUs.AboutUs" />
-        <activity android:name=".payment.MerchantCheckoutActivity" />
+        <activity android:name="mv.hospital.aboutUs.AboutUs" />
+        <activity android:name="mv.hospital.payment.MerchantCheckoutActivity" />
     </application>
 
 </manifest>

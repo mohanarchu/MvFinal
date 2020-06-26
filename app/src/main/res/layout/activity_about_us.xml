@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:background="@color/white"
     android:layout_height="match_parent"
-    tools:context=".aboutUs.AboutUs">
+    tools:context="mv.hospital.aboutUs.AboutUs">
 
 
     <androidx.appcompat.widget.Toolbar

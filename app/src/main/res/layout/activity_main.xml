@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="mv.hospital.MainActivity">
 
     <androidx.appcompat.widget.Toolbar
 
@@ -177,7 +177,7 @@
                 android:layout_height="match_parent">
                 <ImageView
                     android:scaleType="centerCrop"
-                    android:src="@drawable/mv"
+                    android:id="@+id/mv_image"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"/>
             </LinearLayout>
