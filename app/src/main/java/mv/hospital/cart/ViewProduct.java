@@ -196,7 +196,7 @@ public class ViewProduct extends AppCompatActivity implements ProductPresent {
             }
         });
         buyNow.setOnClickListener(view -> {
-            if (detailsPojos != null) {
+            if (productCommomPojo != null) {
                 productDb.addProducts(productCommomPojo.getResult()[0].getProductName(),
                         productCommomPojo.getResult()[0].getProductId(),
                         colorSpinner.getText().toString(),

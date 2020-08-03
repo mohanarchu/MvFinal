@@ -285,11 +285,10 @@ public class MyPayments extends AppCompatActivity {
                 payuHashes.setCheckOfferStatusHash(postData.getResult());
             }
         }
-
-        if (mPaymentParams.getOfferKey() != null && (postData = calculateHash(key, PayuConstants.CHECK_OFFER_STATUS, mPaymentParams.getOfferKey(), salt)) != null && postData.getCode() == PayuErrors.NO_ERROR) {
+        if (mPaymentParams.getOfferKey() != null && (postData = calculateHash(key, PayuConstants.CHECK_OFFER_STATUS,
+                mPaymentParams.getOfferKey(), salt)) != null && postData.getCode() == PayuErrors.NO_ERROR) {
             payuHashes.setCheckOfferStatusHash(postData.getResult());
         }
-
         // we have generated all the hases now lest launch sdk's ui
         launchSdkUI(payuHashes);
     }
@@ -320,7 +319,6 @@ public class MyPayments extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, final Intent data) {
         if (requestCode == PayuConstants.PAYU_REQUEST_CODE) {
             if (data != null) {
-
                 /**
                  * Here, data.getStringExtra("payu_response") ---> Implicit response sent by PayU
                  * data.getStringExtra("result") ---> Response received from merchant's Surl/Furl

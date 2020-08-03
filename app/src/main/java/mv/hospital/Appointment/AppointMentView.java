@@ -13,6 +13,7 @@ import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.Disposable;
 import io.reactivex.schedulers.Schedulers;
+import mv.hospital.profile.ProPojo;
 
 public class AppointMentView {
 
@@ -118,5 +119,38 @@ public class AppointMentView {
             }
         });
     }
+    public void makeUpdate(String patientId, JsonObject jsonObject){
 
+        NetworkingUtils.getUserApiInstance().update(patientId,jsonObject).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<ProPojo>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(ProPojo orderPojo) {
+
+                if (orderPojo.getStatus().equals("true")){
+
+                    appointmentModel.createdPatientid(patientId);
+
+                }else {
+                    appointmentModel.showToast("Try again");
+                }
+
+            }
+
+            @Override
+            public void onError(Throwable e) {
+
+            }
+
+            @Override
+            public void onComplete() {
+
+
+            }
+        });
+    }
 }

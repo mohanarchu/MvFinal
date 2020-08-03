@@ -11,6 +11,7 @@ import io.reactivex.schedulers.Schedulers;
 import mv.hospital.Appointment.model.AppointNumberPojo;
 import mv.hospital.Appointment.model.BranchModel;
 import mv.hospital.Appointment.model.MailPojo;
+import mv.hospital.Appointment.model.RoomPojo;
 import mv.hospital.Appointment.model.UserValPojo;
 import mv.hospital.Networks.NetworkingUtils;
 import mv.hospital.ViewModel;
@@ -109,6 +110,37 @@ public class BookingPresenter {
         });
     }
 
+    public void getRooms(String branchid) {
+        JsonObject jsonObject = new JsonObject();
+        jsonObject.addProperty("branchid",branchid);
+
+        NetworkingUtils.getUserApiInstance().getRooms(jsonObject).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<RoomPojo>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+            }
+            @Override
+            public void onNext(RoomPojo commPojo) {
+
+                if (commPojo.getStatus().equals("true")){
+                     bookingView.showRooms(commPojo.getPickup(),commPojo.getRooms());
+                } else {
+                    bookingView.showToast("Try again");
+                }
+
+                bookingView.hideProgress();
+            }
+            @Override
+            public void onError(Throwable e) {
+                bookingView.hideProgress();
+            }
+            @Override
+            public void onComplete() {
+                bookingView.hideProgress();
+            }
+        });
+    }
+
 
     public interface BookingView extends ViewModel {
         @Override
@@ -123,6 +155,8 @@ public class BookingPresenter {
         void showBranches(BranchModel.Result[] branches);
 
         void showAppNumbers(String RegistrationId, String Appointmentid);
+
+        void showRooms(RoomPojo.Pickup[] pickups,RoomPojo.Rooms[] rooms);
 
         void mailSuccess();
 

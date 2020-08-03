@@ -1,6 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center|top"
     android:layout_height="match_parent">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.appcompat.widget.Toolbar
+
+
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:id="@+id/tools"
+        app:title="New Address"
+        app:titleTextColor="@color/white"
+        android:layout_height="wrap_content"/>
+
+    <include layout="@layout/address_layout"/>
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_marginTop="20dp"
+        app:cardBackgroundColor="@color/colorPrimary"
+        android:layout_width="140dp"
+        android:id="@+id/add_add"
+        android:layout_height="35dp">
+
+        <TextView
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_width="match_parent"
+            android:text="Add"
+            android:layout_height="match_parent"/>
+
+
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

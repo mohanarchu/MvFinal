@@ -292,13 +292,10 @@ public class Cart extends AppCompatActivity {
         DecimalFormat formatter = new DecimalFormat("###,###,##0.00");
         return formatter.format(Double.parseDouble(amount));
     }
-    void addCount(Double f   ){
-        Log.i("TAG","Total Amounts"+ f);
+    void addCount(Double f){
         totalAmounts.add(f);
     }
-    void  calculate(String amount,boolean increse) {
 
-    }
     public void showDialog(Activity activity, String title, CharSequence message) {
         AlertDialog.Builder builder = new AlertDialog.Builder(activity);
 

@@ -2,6 +2,7 @@ package mv.hospital.Order;
 
 import android.content.Context;
 
+import mv.hospital.Appointment.model.MailPojo;
 import mv.hospital.Networks.NetworkingUtils;
 import com.google.gson.JsonObject;
 
@@ -111,9 +112,41 @@ public class OrderPresenter {
             public void onNext(ProPojo orderPojo) {
 
                 if (orderPojo.getStatus().equals("true")){
+                    orderView.showToast("Completed");
 
+                } else {
+                    orderView.showToast("Try again");
+                }
+                orderView.hideProgress();
+            }
+            @Override
+            public void onError(Throwable e) {
+                orderView.hideProgress();
+            }
+
+            @Override
+            public void onComplete() {
+                orderView.hideProgress();
+
+            }
+        });
+
+    }
+    public void sendOrderMail(JsonObject jsonObject){
+
+
+
+        NetworkingUtils.getUserApiInstance().sendOrderMail(jsonObject).subscribeOn(Schedulers.io()).
+                observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<MailPojo>() {
+            @Override
+            public void onSubscribe(Disposable d) {
+
+            }
+
+            @Override
+            public void onNext(MailPojo orderPojo) {
+                if (orderPojo.getStatus().equals("true")){
                     orderView.placed();
-
                 }else {
                     orderView.showToast("Try again");
                 }
@@ -133,6 +166,5 @@ public class OrderPresenter {
         });
 
     }
-
 
 }

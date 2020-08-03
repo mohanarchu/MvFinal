@@ -1,6 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    app:cardCornerRadius="6dp"
+    android:gravity="center|start|top"
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:padding="4dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/primary_color"
+            android:layout_width="10dp"
+
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:text="Name"
+                    android:textSize="17dp"
+                    android:id="@+id/ad_mobilenumber"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"/>
+                <TextView
+                    android:visibility="gone"
+                    android:text="Set as primary"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"
+                    android:id="@+id/set_as_primary"
+                    android:layout_alignParentEnd="true"
+                    android:gravity="center"
+                    android:background="@color/colorPrimaryDark"
+                    android:layout_width="100dp"
+                    android:padding="2dp"
+                    android:layout_height="23dp"/>
+
+            </RelativeLayout>
+            <TextView
+                android:layout_marginTop="6dp"
+                android:text="Name"
+                android:textSize="17dp"
+                android:id="@+id/ad_phone"
+                android:textStyle="bold"
+                android:textColor="@color/black1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+            <TextView
+                android:layout_marginTop="6dp"
+                android:textStyle="bold"
+                android:id="@+id/ad_address"
+                android:textSize="16dp"
+                android:text="Address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</androidx.cardview.widget.CardView>

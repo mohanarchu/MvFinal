@@ -54,6 +54,7 @@
         </activity>
         <activity android:name="mv.hospital.aboutUs.AboutUs" />
         <activity android:name="mv.hospital.payment.MerchantCheckoutActivity" />
+        <activity android:name="mv.hospital.Shop.address.AddressActivity" />
     </application>
 
 </manifest>

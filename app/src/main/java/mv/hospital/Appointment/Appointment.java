@@ -148,7 +148,7 @@ public class Appointment extends AppCompatActivity implements AppointmentModel {
         window.setStatusBarColor(ContextCompat.getColor(getApplicationContext(), R.color.colorAccent1));
     }
 
-    void makeRegistration(){
+    void makeRegistration(boolean isUpdate,String patientId,String regNo){
         String date  = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
                 Locale.getDefault()).format(new Date());
         JsonObject jsonObject = new JsonObject();
@@ -166,14 +166,21 @@ public class Appointment extends AppCompatActivity implements AppointmentModel {
                 pAddress.getText().toString() +","+pAddressTwo.getText().toString());
         jsonObject.addProperty("Fax",  "");
         jsonObject.addProperty("RegDate",date);
-        jsonObject.addProperty("RegistrationId","MVH"+(Integer.parseInt(registrationNumber) + 1));
+        jsonObject.addProperty("RegistrationId", regNo );
         JsonObject jsonObject1 = new JsonObject();
         jsonObject1.add("data", jsonObject);
         jsonObject1.addProperty("table", "Registration");
         jsonObject1.addProperty("multipleInsert", false);
-        appointMentView.makeOrder(jsonObject1);
+        if (isUpdate) {
+            JsonObject jsonObject2 = new JsonObject();
+            jsonObject2.addProperty("table","Registration");
+            jsonObject2.addProperty("refernce","patientid");
+            jsonObject2.add("data",jsonObject);
+            appointMentView.makeUpdate(patientId,jsonObject2);
+        } else {
+            appointMentView.makeOrder(jsonObject1);
+        }
     }
-
     public static boolean isValid(String s)
     {
         Pattern p = Pattern.compile("(0/91)?[7-9][0-9]{9}");
@@ -204,14 +211,15 @@ public class Appointment extends AppCompatActivity implements AppointmentModel {
 
     @Override
     public void showPatientId(String id,String regId) {
-        if (progressDialog != null){
+        if (progressDialog != null) {
             progressDialog.dismiss();
         }
         if (id.equals("-1")) {
-            makeRegistration();
+            this.registrationNumber = "MVH"+(Integer.parseInt(registrationNumber) + 1);
+            makeRegistration(false,"",registrationNumber);
         } else {
-            this.registrationNumber = regId;
-            showActivity(id,regId);
+            this.registrationNumber =  regId == null ? "MVH"+(Integer.parseInt(registrationNumber) + 1) : regId;
+            makeRegistration(true,id,registrationNumber);
         }
     }
 
@@ -234,7 +242,7 @@ public class Appointment extends AppCompatActivity implements AppointmentModel {
 
     @Override
     public void createdPatientid(String id) {
-        showActivity(id,"MVH"+(Integer.parseInt(registrationNumber) + 1));
+        showActivity(id,this.registrationNumber);
     }
 
     @Override

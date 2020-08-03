@@ -5,12 +5,15 @@ package mv.hospital.Networks;
 import mv.hospital.Appointment.model.AppointNumberPojo;
 import mv.hospital.Appointment.model.BranchModel;
 import mv.hospital.Appointment.model.MailPojo;
+import mv.hospital.Appointment.model.RoomPojo;
 import mv.hospital.Appointment.model.UserValPojo;
 import mv.hospital.Order.OrderPojo;
 import mv.hospital.Register.LoginPojo;
 import mv.hospital.Register.OtpPojo;
 import mv.hospital.Register.RegisterPojo;
 import mv.hospital.Shop.ProductPojo;
+import mv.hospital.Shop.address.AddressPojo;
+import mv.hospital.Shop.address.StatePojo;
 import mv.hospital.Shop.reviews.ReviewPojo;
 import mv.hospital.cart.ColorPojo;
 import mv.hospital.cart.DetailsPojo;
@@ -120,6 +123,21 @@ public interface MainInterface {
      @Headers({"Content-Type: application/json;charset=UTF-8"})
      Observable<MailPojo> sendMail(@Body JsonObject jsonObject);
 
+     @POST("/api/Product")
+     @Headers({"Content-Type: application/json;charset=UTF-8"})
+     Observable<AddressPojo> getAddress(@Body JsonObject statePost);
+
+     @POST("/api/commonList")
+     @Headers({"Content-Type: application/json;charset=UTF-8"})
+     Observable<StatePojo> getStates(@Body JsonObject statePost);
+
+     @POST("/api/getRooms")
+     @Headers({"Content-Type: application/json;charset=UTF-8"})
+     Observable<RoomPojo> getRooms(@Body JsonObject jsonObject);
+
+     @POST("/api/sendOrder")
+     @Headers({"Content-Type: application/json;charset=UTF-8"})
+     Observable<MailPojo> sendOrderMail(@Body JsonObject jsonObject);
 
 }
 

@@ -37,20 +37,20 @@
 
                 <LinearLayout
 
+                    android:orientation="vertical"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:weightSum="1">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_weight="1"
+
                         android:orientation="vertical">
                         <TextView
                             android:paddingLeft="5dp"
-                            android:text="Doctor Name"
+                            android:text="Doctor Name (Optional)"
                             android:textSize="16dp"
                             android:textColor="@color/colorAccent"
                             android:layout_width="match_parent"
@@ -77,8 +77,35 @@
 
 
                     </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="5dp"
+                        android:layout_width="match_parent"
 
+                        android:layout_height="wrap_content"
 
+                        android:orientation="vertical">
+                        <TextView
+                            android:paddingLeft="5dp"
+                            android:text="D No (for existing patient)"
+                            android:textSize="16dp"
+                            android:textColor="@color/colorAccent"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content" />
+                        <LinearLayout
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+                            <EditText
+                                android:id="@+id/d_no_number"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center|start"
+                                android:paddingLeft="5dp"
+                                android:singleLine="true"
+                                android:textColor="@color/black1"
+                                android:textSize="18dp" />
+                        </LinearLayout>
+                    </LinearLayout>
                 </LinearLayout>
 
                 <com.codesgood.views.JustifiedTextView
@@ -373,6 +400,57 @@
 
                     </RadioGroup>
                 </LinearLayout>
+
+                <LinearLayout
+                    android:padding="2dp"
+                    android:layout_marginTop="3dp"
+                    android:layout_marginBottom="3dp"
+
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:padding="3dp"
+                        android:textSize="14dp"
+                        android:textColor="@color/colorAccent"
+
+                        android:text="Pickup required"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <RadioGroup
+
+                        android:id="@+id/aPickupGroup"
+                        android:weightSum="2"
+                        android:textColor="@color/white"
+                        android:orientation="horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <RadioButton
+                            android:layout_weight="0.7"
+                            android:id="@+id/aPickupGroup1"
+                            android:text="Yes"
+                            android:buttonTint="@color/colorPrimaryDark"
+                            android:checked="true"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="16sp"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+                        <RadioButton
+                            android:buttonTint="@color/colorPrimaryDark"
+                            android:layout_weight="0.7"
+                            android:text="No"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textSize="16sp"
+                            android:id="@+id/aPickupGroup2"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content" />
+
+
+
+                    </RadioGroup>
+                </LinearLayout>
                 <LinearLayout
                     android:id="@+id/roomTypeSpiinnerView"
                     android:layout_width="match_parent"
@@ -412,16 +490,18 @@
 
 
                 </LinearLayout>
-                <LinearLayout
 
+                <LinearLayout
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:id="@+id/pickupSpinnerview"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:weightSum="1">
 
                     <LinearLayout
-                        android:layout_width="0dp"
-
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:orientation="vertical">
@@ -447,6 +527,71 @@
                         </LinearLayout>
 
 
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:weightSum="1">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:paddingLeft="5dp"
+                                android:text="Pickup place"
+                                android:textSize="16dp"
+                                android:textColor="@color/colorAccent"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content" />
+
+                            <LinearLayout
+
+                                android:layout_marginTop="5dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <EditText
+                                    android:id="@+id/picupPlace"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:gravity="center|start"
+
+                                    android:paddingLeft="5dp"
+                                    android:singleLine="true"
+                                    android:textColor="@color/black1"
+
+                                    android:textSize="18dp" />
+                            </LinearLayout>
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:padding="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:id="@+id/pickupTime"
+                            android:background="@drawable/line"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:gravity="center|start"
+                            android:paddingLeft="5dp"
+                            android:hint="Pickup time"
+                            android:singleLine="true"
+                            android:textColor="@color/black1"
+                            android:textSize="18dp" />
                     </LinearLayout>
 
 

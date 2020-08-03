@@ -1,5 +1,6 @@
 package mv.hospital;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Build;
@@ -13,9 +14,13 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import androidx.annotation.Nullable;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import mv.hospital.Order.OrderPresenter;
 import mv.hospital.Order.OrderView;
@@ -25,6 +30,11 @@ import mv.hospital.ProductDB.proLocalArray;
 import com.google.gson.Gson;
 import com.hospital.R;
 
+import mv.hospital.Shop.address.AddressActivity;
+import mv.hospital.Shop.address.AddressAdapter;
+import mv.hospital.Shop.address.AddressPojo;
+import mv.hospital.Shop.address.AddressPresenter;
+import mv.hospital.Shop.address.StatePojo;
 import mv.hospital.cart.OldOrders.OldPojo;
 import mv.hospital.cart.orders.UtilityClass;
 import mv.hospital.payment.MerchantCheckoutActivity;
@@ -43,7 +53,7 @@ import java.util.regex.Pattern;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class AddressDetails extends AppCompatActivity implements OrderView {
+public class AddressDetails extends AppCompatActivity implements OrderView , AddressPresenter.AddressView{
 
 
     ProductDb productDb;
@@ -68,22 +78,32 @@ public class AddressDetails extends AppCompatActivity implements OrderView {
     LinearLayout makePayment;
     @BindView(R.id.sameAs)
     CheckBox sameAs;
+    @BindView(R.id.address_recycler1)
+    RecyclerView addressRecycler;
+    @BindView(R.id.addNewAddress)
+    CardView addnewAddress;
     String amount,type;
-
+    AddressPresenter addressPresenter;
     ProgressDialog progressDialog;
-
+    AddressAdapter addressAdapter;
     ArrayList<JsonObject> orderArrays = new ArrayList<>();
     public static String orderIds = "";
+    public static String shipName = "",shipAddress="",shipCity="",shipZipCode="",shipState="",sipCountry="india",shipContact="",shipEmail="";
 
+    boolean isFirstAddress= false;
+    AddressPojo.Result[] addressResult;
+    int oldPosition = 0;
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address_details);
         ButterKnife.bind(this);
+        setRecycler();
         productDb = new ProductDb(getApplicationContext());
         orderPresenter = new OrderPresenter(getApplicationContext(), this);
-
+        addressPresenter = new AddressPresenter(getApplicationContext(),this);
+        addressPresenter.getList(Shared.id(getApplicationContext()));
 
         Intent intent = getIntent();
         if (intent != null){
@@ -99,28 +119,33 @@ public class AddressDetails extends AppCompatActivity implements OrderView {
         makePayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                if (name.getText().toString().isEmpty() || dEmail.getText().toString().isEmpty() || dPhone.getText().toString().isEmpty() ||
+                if (name.getText().toString().isEmpty() ||   dPhone.getText().toString().isEmpty() ||
                    dState.getText().toString().isEmpty() || dStreet.getText().toString().isEmpty() || dCity.getText().toString().isEmpty() ||
                     dCountry.getText().toString().isEmpty() || dPincode.getText().toString().isEmpty() ){
                         showToast("Fill all details");
                 }else {
-                    if (!isValidEmail(dEmail.getText().toString())){
-                        showToast("Enter valid email");
-                    } else if(!isValid(dPhone.getText().toString())){
+                    if(!isValid(dPhone.getText().toString())) {
                         showToast("Enter valid mobile number");
+                    } else {
 
-                    }else {
-                         postOrder();
-//
-//                        Intent intent=  new Intent(getApplicationContext(), MerchantCheckoutActivity.class);
-//                        intent.putExtra("id","12");
-//                        intent.putExtra("status","success");
-//                        intent.putExtra("amount","800");
-//                        startActivity(intent);
+                        shipName = name.getText().toString();
+                        shipEmail = dEmail.getText().toString();
+                        shipAddress =  dStreet.getText().toString();
+                        shipCity =  dCity.getText().toString();
+                        shipContact =  dPhone.getText().toString();
+                        shipZipCode = dPincode.getText().toString();
+                        shipState =   dState.getText().toString();
+                        postOrder();
                     }
                 }
-
+            }
+        });
+        addnewAddress.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent1 = new Intent(getApplicationContext(), AddressActivity.class);
+                intent1.putExtra("isFirst",isFirstAddress);
+                startActivityForResult(intent1,100);
             }
         });
         sameAs.setOnCheckedChangeListener((compoundButton, b) -> {
@@ -144,10 +169,46 @@ public class AddressDetails extends AppCompatActivity implements OrderView {
                 dCity.setText("");
             }
         });
+
+
     }
+    void setRecycler() {
+        addressAdapter = new AddressAdapter();
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getApplicationContext(),RecyclerView.VERTICAL,false);
+        addressRecycler.setLayoutManager(linearLayoutManager);
+        addressRecycler.setAdapter(addressAdapter);
+
+        addressAdapter.setListener(new AddressAdapter.Listener() {
+            @Override
+            public void selectedAddress(AddressPojo.Result result,int pos) {
+
+                if (addressResult != null) {
+                    addressResult[oldPosition].setPrimary("0");
+                    addressResult[pos].setPrimary("1");
+                    addressAdapter.setList(addressResult);
+                    addressAdapter.notifyDataSetChanged();
+                    oldPosition = pos;
+                    name.setText(result.getName());
+                    dEmail.setText("");
+                    dPhone.setText(result.getPhone());
+                    dStreet.setText(result.getAddress());
+                    dState.setText(result.getState());
+                    dCity.setText(result.getCity());
+                    dCountry.setText("India");
+                    dPincode.setText(result.getPostalcode());
+                }
+            }
+
+            @Override
+            public void setPrimary(String id) {
+
+            }
+        });
+    }
+
+
     public static boolean isValid(String s)
     {
-
         Pattern p = Pattern.compile("(0/91)?[7-9][0-9]{9}");
         Matcher m = p.matcher(s);
         return (m.find() && m.group().equals(s));
@@ -155,8 +216,7 @@ public class AddressDetails extends AppCompatActivity implements OrderView {
     public final static boolean isValidEmail(CharSequence target) {
         return !TextUtils.isEmpty(target) && android.util.Patterns.EMAIL_ADDRESS.matcher(target).matches();
     }
-    void postOrder() {
-        {
+    void postOrder() { {
             JsonObject jsonObject = new JsonObject();
             String date  = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'",
                     Locale.getDefault()).format(new Date());
@@ -245,7 +305,6 @@ public class AddressDetails extends AppCompatActivity implements OrderView {
         jsonObject.addProperty("multipleInsert", true);
         orderArrays.add(jsonObject);
         orderPresenter.postProducts(jsonObject);
-
     }
 
     void makePayment() {
@@ -266,9 +325,44 @@ public class AddressDetails extends AppCompatActivity implements OrderView {
     }
 
     @Override
-    public void hideProgress() {
+    public void showResult(AddressPojo.Result[] results) {
+        if (results.length == 0) {
+            isFirstAddress = true;
+        }
+        addressResult = results;
+        addressAdapter.setList(results);
+        addressAdapter.notifyDataSetChanged();
+        for (int i=0 ;i<results.length;i++) {
+            AddressPojo.Result re = results[i];
+            if (re.getPrimary().equals("1")) {
+                oldPosition = i;
+                name.setText(re.getName());
+                dEmail.setText("");
+                dPhone.setText(re.getPhone());
+                dStreet.setText(re.getAddress());
+                dState.setText(re.getState());
+                dCity.setText(re.getCity());
+                dCountry.setText("India");
+                dPincode.setText(re.getPostalcode());
+            }
+        }
+    }
 
+    @Override
+    public void showStates(StatePojo.Result[] results) {
+        
+    }
+
+    @Override
+    public void hideProgress() {
         progressDialog.dismiss();
+    }
+
+    @Override
+    public void showDetails(String message) {
+        if (message.equals("Success")) {
+            addressPresenter.getList(Shared.id(getApplicationContext()));
+        }
     }
 
 
@@ -282,7 +376,7 @@ public class AddressDetails extends AppCompatActivity implements OrderView {
     @Override
     public void sucess(String id) {
         orderIds = id;
-       postProducts(id);
+        postProducts(id);
     }
 
     @Override
@@ -290,5 +384,13 @@ public class AddressDetails extends AppCompatActivity implements OrderView {
 //        startActivity(new Intent(getApplicationContext(), ShoppingMain.class));
 //        finish();
         makePayment();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (resultCode == Activity.RESULT_OK) {
+            addressPresenter.getList(Shared.id(getApplicationContext()));
+        }
     }
 }

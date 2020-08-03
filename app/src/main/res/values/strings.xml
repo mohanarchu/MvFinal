@@ -73,7 +73,7 @@
 
     <string name="use_live_key_in_production_environment">Please use your live merchant key in production environment</string>
     <string name="could_not_receive_data">Could not receive data</string>
-    <string name="appintment_message">Thanks for the appointment booking request. \n Our appointments booking team will check the availability of the consultant and date requested and send you a confirmation mail or call you on the mobile no. shared by u</string>
+    <string name="appintment_message">Thanks for the appointment booking request. \n Our appointments booking team will check the availability of the consultant and date requested and send you a confirmation mail or call you on the mobile no. shared by you.</string>
 <!--    <string name="warning">M.V. Diabeat is live! \nPlease note that appointments can be scheduled only after May 3rd, 2020. Shopping services and delivery as well will not be available until the countrywide lockdown has been lifted. Thank you for your cooperation.</string>-->
 
     <string name="warning">Please note that delivery may be affected due to lockdown.</string>
